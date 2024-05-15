@@ -7,6 +7,7 @@ import 'package:gallery_saver/gallery_saver.dart';
 import 'package:image/image.dart' as img;
 import 'package:logger/logger.dart';
 import 'package:soundsense/classifier.dart';
+import 'package:soundsense/classifier_float.dart';
 import 'package:soundsense/classifier_quant.dart';
 import 'package:speech_to_text/speech_recognition_result.dart';
 import 'package:speech_to_text/speech_to_text.dart';
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
     super.initState();
     initializeCamera();
     _initSpeech();
-    _classifier = ClassifierQuant();
+    _classifier = ClassifierFloat(numThreads: 1);
   }
 
   void _initSpeech() async {
